@@ -1,0 +1,24 @@
+{
+  "name": "context_api",
+  "version": "1.0.0",
+  "description": "e-commerce app ",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "parcel": "^2.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "process": "^0.11.10"
+  }
+}
