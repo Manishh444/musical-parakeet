@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import iphone from "../util/images/images.jpg";
+import { Cart } from "../../Context";
 
-const SingleProduct = ({ prod, setCart, cart }) => {
-  const { name, image, price } = { ...prod };
+const SingleProduct = ({ prod }) => {
+      const { cart, setCart } = useContext(Cart);
+
+  const { name, price } = { ...prod };
   return (
     <div className="card">
       <img src={iphone} alt={"product logo"} />
@@ -10,25 +14,33 @@ const SingleProduct = ({ prod, setCart, cart }) => {
         <h4>{price}</h4>
       </div>
 
-      <button
-        className="button"
-        onClick={() => {
-          setCart([...cart, prod]);
-        }}
-      >{`Add to card`}</button>
-      <button
-        className="button"
-        onClick={() => {
-          const lastIndex = cart.find((c) => c.id == prod.id);
-          const lof = cart.lastIndexOf(lastIndex);
-          cart.splice(lof, 1);
-          setCart(cart);
-        }}
-      >
-        Remove from cart
-      </button>
+      {cart.includes(prod) ? (
+        <button
+          className="button"
+          onClick={() => setCart(cart.filter((c) => c.id !== prod.id))}
+        >
+          Remove from Cart
+        </button>
+      ) : (
+        <button className="button" onClick={() => setCart([...cart, prod])}>
+          Add to Cart
+        </button>
+      )}
     </div>
   );
 };
 
 export default SingleProduct;
+
+
+// <button
+//   className="button"
+//   onClick={() => {
+//     const lastIndex = cart.find((c) => c.id == prod.id);
+//     const lof = cart.lastIndexOf(lastIndex);
+//     cart.splice(lof, 1);
+//     setCart(cart);
+//   }}
+// >
+//   Remove from cart
+// </button>;
