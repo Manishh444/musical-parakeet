@@ -11,7 +11,7 @@ const HomePage = () => {
         id:index,
         name: faker.commerce.productName(),
         price: faker.commerce.price(),
-        image: faker.image.avatar(),
+        // image: faker.image.avatar(), not using becoz its ugly and disturbing hate this imagesssss aaaaaaaaa
       }));
       const [cart, setCart]= useState([])
     // console.log(productsArray)
